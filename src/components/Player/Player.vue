@@ -4,12 +4,12 @@
     <div class="player-name">{{name}}</div>
 		<div class="cards">
 			<template v-if="cards.length">
-				<div v-for="card in cards" class="card" >
-					<Card :image="card.image" :code="card.code" :key="card.code"  :gameStatus="gameStatus" />
+				<div v-for="card in cards" class="card" :key="card.code">
+					<Card :image="card.image" :code="card.code"  :gameStatus="gameStatus" />
 				</div>
 			</template>
 			<template v-else>
-				<div class="card" v-for="i in 3">
+				<div class="card" v-for="i in 3" :key="i">
 					<Card :image="cardPlaceholder" code="NONE" :key="i"  :gameStatus="gameStatus" />
 				</div>
 			</template>

@@ -133,7 +133,7 @@ export default {
 
 					// get lap 
 					const maxScore = this.players[scoreWinIndex].score;
-					this.players.map( (player, index) => {
+					this.players.map( (player) => {
 						if (player.score === maxScore) {
 							scoreWinLap++;
 						}
@@ -186,7 +186,7 @@ export default {
 								// console.log('STARTED');
 							}
 						})
-						.catch( (error) => {
+						.catch( error => {
 	            console.log(error);
 	            this.loading = false;
 	          })
@@ -218,7 +218,7 @@ export default {
 		},
 
 		checkGameEnd() {
-      this.players.map( (player, index) => {
+      this.players.map( (player) => {
 				if (player.point <= 0 || this.round === CONFIG.END_GAME) {
 					this.endGame = true;
 				}
@@ -227,7 +227,7 @@ export default {
 		getWinnerList() {
 			const maxPoint = Math.max(...this.players.map(p => p.point), 0);
 			this.winners = [];
-      this.players.map( (player, index) => {
+      this.players.map( (player) => {
       	if (player.point === maxPoint) {
       		this.winners.push(player);
       	}
