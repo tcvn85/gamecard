@@ -1,0 +1,139 @@
+html, body{
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	background: #eee;
+}
+
+#app {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  height: 100%;
+}
+
+.board{
+	background: #fff;
+	margin: 0 auto;
+	height: 100%;
+	position: relative;
+}
+.player{
+	position: absolute;
+	width: 150px;
+	&.winner{
+		color: orange;
+		.player-name{
+			background: orange;
+		}
+	}
+}
+.player-top{
+	left: 50%;
+	top: 0;
+	transform: translate(-50%, 0);
+}
+.player-right{
+	right: 0;
+	top: 50%;
+	transform: translate(0, -50%);
+}
+.player-bottom{
+	bottom: 0;
+	left: 50%;
+	transform: translate(-50%, 0);
+}
+.player-left{
+	top: 50%;
+	left: 0;
+	transform: translate(0, -50%);
+}
+
+.player-point{
+	font-weight: bold;
+	font-size: 1.75em;
+}
+
+
+.player-name{
+	background: green;
+	color: #fff;
+	margin-bottom: .5rem
+}
+
+.cards{
+	display: flex;
+	.card{
+		width: 33.33%;
+		img{
+			border-radius: 1px;
+		}
+	}
+}
+
+.round{
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}
+.round-name{
+	font-size: 2em;
+	color: #aaa;
+	font-weight: bold;
+	margin-bottom: .5rem;
+	text-transform: uppercase
+}
+.btn{
+	padding: 10px 15px;
+	text-align: center;
+	min-width: 120px;
+	font-size: 1.25em;
+	font-weight: bold;
+	border: none;
+	background: red;
+	color: #fff;
+	text-transform: uppercase;
+	cursor: pointer;
+}
+
+.player-score{
+	font-weight: bold;
+}
+
+.loading{
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	top: 0;
+	background: rgba(255,255,255,.5);
+	z-index: 10;
+}
+
+.end-game{
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	top: 0;
+	background: rgba(255,255,255,1);
+	z-index: 10;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: red;
+	.congra-names{
+		font-size: 2rem;
+	}
+}
+
+.mt-3{
+	margin-top: 1rem
+}
+
+.btn-secondary{
+	background: #ccc;
+}
