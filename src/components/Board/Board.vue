@@ -16,6 +16,7 @@
 	    </div>
 	  </template>
 	  <div class="round" v-else>
+	  	<h1>BAI CAO</h1>
 	  	<button class="btn" @click="handleStartGame">{{gameStatus}}</button>
 	  </div>
 		
@@ -142,8 +143,13 @@ export default {
 					this.players.map( (player, index) => {
 						if (player.score === maxScore) {
 							this.players[index].isWin = true;
-							this.players[index].point +=  CONFIG.BET * (this.players.length - scoreWinLap);
-
+							if (scoreWinLap === 1) {
+								this.players[index].point +=  CONFIG.BET * (this.players.length - scoreWinLap);
+							} else if (scoreWinLap === 2) {
+								this.players[index].point +=  CONFIG.BET;	
+							} else if (scoreWinLap === 3) {
+								this.players[index].point +=  Math.round(CONFIG.BET /  3, 10);
+							} 
 						} else {
 							this.players[index].point -=  CONFIG.BET;
 						}
@@ -158,11 +164,11 @@ export default {
 				case CONFIG.NEXT_ROUND:
 
 					this.checkGameEnd();
-
+					this.round = this.round + 1;
+					this.gameStatus = CONFIG.START;
+						
 					this.loading = false;
 					if (!this.endGame) {
-						this.round = this.round + 1;
-						this.gameStatus = CONFIG.START;
 						this.resetRound();
 					} else {
 						this.gameStatus = CONFIG.FINISH;
